@@ -59,4 +59,10 @@ public class DirectionTest {
 		int value = dir.getShortName();
 		assertEquals("W", value);
 	}
+	
+//	public void testFindByShortName() {
+//		Direction dir = Direction.NORTH;
+//		Direction value = findByShortName('W');
+//		assertEquals(Direction.WEST, value);
+//	}
 }

@@ -1,5 +1,7 @@
 package marsrovergame;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Mars {
@@ -7,6 +9,12 @@ public class Mars {
 	private int xSize;
 	private int ySize;
 	private List<Obstacle> obstacles;
+	
+	public Mars(int xSize, int ySize) {
+		this.xSize = xSize;
+		this.ySize = ySize;
+		this.obstacles = Collections.<Obstacle>emptyList();
+	}
 	
 	public Mars(int xSize, int ySize, List<Obstacle> obstacles) throws InvalidObstaclesException {
 		if (!validObstacles(xSize, ySize, obstacles))
@@ -20,8 +28,8 @@ public class Mars {
 		for (Obstacle obstacle : obs) {
 			if (obstacle.getxCoord() < 0 ||
 					obstacle.getyCoord() < 0 ||
-					obstacle.getxCoord() > x ||
-					obstacle.getyCoord() > y) {
+					obstacle.getxCoord() > x-1 ||
+					obstacle.getyCoord() > y-1) {
 				return false;
 			}
 		}

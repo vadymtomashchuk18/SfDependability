@@ -14,7 +14,7 @@ public class MarsTest {
 	
 	@Test
 	public void testXSizeMars() throws Exception {
-		obstacles = Arrays.asList(new Obstacle(10, 1), new Obstacle(8,8));
+		obstacles = Arrays.asList(new Obstacle(9, 1), new Obstacle(8,8));
 		Mars mars = new Mars(xSize, ySize, obstacles);
 		int x = mars.getxSize();
 		assertEquals(10, x);
@@ -22,7 +22,7 @@ public class MarsTest {
 	
 	@Test
 	public void testYSizeMars() throws Exception {
-		obstacles = Arrays.asList(new Obstacle(10, 1), new Obstacle(8,8));
+		obstacles = Arrays.asList(new Obstacle(9, 1), new Obstacle(8,8));
 		Mars mars = new Mars(xSize, ySize, obstacles);
 		int y = mars.getySize();
 		assertEquals(10, y);
@@ -42,6 +42,22 @@ public class MarsTest {
 		assertEquals(1, y);
 	}
 	
+	@Test
+	public void testMarsZeroXObstacle() throws Exception {
+		obstacles = Arrays.asList(new Obstacle(0, 5), new Obstacle(8, 0));
+		Mars mars = new Mars(xSize, ySize, obstacles);
+		int valXObs = mars.getObstacles().get(0).getxCoord();
+		assertEquals(0, valXObs);
+	}
+	
+	@Test
+	public void testMarsZeroYObstacle() throws Exception {
+		obstacles = Arrays.asList(new Obstacle(0, 5), new Obstacle(8, 0));
+		Mars mars = new Mars(xSize, ySize, obstacles);
+		int valYObs = mars.getObstacles().get(1).getyCoord();
+		assertEquals(0, valYObs);
+	}
+	
 	@Test(expected=InvalidObstaclesException.class)
 	public void testMarsWithXObstaclesGraterThenGrid() throws Exception {
 		obstacles = Arrays.asList(new Obstacle(11, 10), new Obstacle(8,8));
@@ -50,13 +66,13 @@ public class MarsTest {
 	
 	@Test(expected=InvalidObstaclesException.class)
 	public void testMarsWithYObstaclesGraterThenGrid() throws Exception {
-		obstacles = Arrays.asList(new Obstacle(10, 20), new Obstacle(8,8));
+		obstacles = Arrays.asList(new Obstacle(9, 20), new Obstacle(8,8));
 		new Mars(xSize, ySize, obstacles);
 	}
 	
 	@Test(expected=InvalidObstaclesException.class)
 	public void testMarsWithXObstaclesLess0() throws Exception {
-		obstacles = Arrays.asList(new Obstacle(10, 6), new Obstacle(-8,8));
+		obstacles = Arrays.asList(new Obstacle(9, 6), new Obstacle(-8,8));
 		new Mars(xSize, ySize, obstacles);
 	}
 	

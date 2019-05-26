@@ -11,6 +11,11 @@ public enum Direction {
 		value = newValue;
 		shortName = shortNameValue;
 	}
+	
+	private Direction() {
+		this.value = 1;
+		this.shortName = 'N';
+	}
 
 	public Direction nextDir() {
 		return dirs[(this.ordinal() + 1) % dirs.length];
@@ -27,4 +32,15 @@ public enum Direction {
 	public char getShortName() {
 		return shortName;
 	}
+	
+//	public Direction findByShortName(char val) {
+//		Direction current = NORTH;
+//		for (Direction direction : dirs) {
+//			if (val == direction.getShortName()) {
+//				return direction;
+//			}
+//		}
+//		return current;
+//	}
+
 }
