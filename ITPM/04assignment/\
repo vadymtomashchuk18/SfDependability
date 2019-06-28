@@ -1,0 +1,39 @@
+import numpy as np
+import pandas as pd
+
+class TWD:
+    data = []
+    alfa = None
+    beta = None
+    concept_of_apr = ''
+
+# input initialization
+    def __init__(self, filename, alfa=1.0, beta=0.0):
+        self.filename = filename
+        self.read_data()
+        self.alfa = alfa
+        self.beta = beta
+
+    def read_data(self):
+        global data
+        data = pd.read_csv(self.filename)
+        return data
+
+    def ind_sets(self):
+        data_cp = data
+        print(data_cp.loc[:,[0]])
+
+# helper-functions
+    def check_equal_rows(self, row1, row2):
+        print('is sets equal?')
+
+    def names_of_equal_rows():
+        names_of_rows = []
+
+    def IND_contains_set(self, _set):
+        print('check if IND contains set')
+
+#============ Tester ============
+flnm = 'table1.csv'
+twd = TWD(flnm)
+twd.ind_sets()
